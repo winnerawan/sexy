@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:weightSum="6"
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageButton
+        android:clickable="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:layout_weight="1"
+        android:id="@+id/addhome"
+        android:src="@drawable/ic_addhome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="TODO" />
+
+    <ImageButton
+        android:id="@+id/gotop"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:layout_weight="1"
+        android:src="@drawable/ic_gotop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="TODO" />
+
+    <ImageButton
+        android:id="@+id/find"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:layout_weight="1"
+        android:src="@drawable/ic_find"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="TODO" />
+
+    <ImageButton
+        android:id="@+id/screenshot"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:layout_weight="1"
+        android:src="@drawable/ic_screenshot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="TODO" />
+
+    <ImageButton
+        android:id="@+id/share"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:layout_weight="1"
+        android:src="@drawable/ic_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="TODO" />
+
+    <ImageButton
+        android:id="@+id/exit"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="TODO" />
+<!--    <LinearLayout-->
+<!--        android:padding="@dimen/padding_16dp"-->
+<!--        android:orientation="vertical"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+
+<!--        <TextView-->
+<!--            android:layout_marginBottom="@dimen/padding_8dp"-->
+<!--            android:layout_marginTop="@dimen/padding_4dp"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="AAAAAAAAAA"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:textColor="@android:color/black"/>-->
+
+<!--        <TextView-->
+<!--            android:layout_marginBottom="@dimen/padding_8dp"-->
+<!--            android:layout_marginTop="@dimen/padding_8dp"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="AAAAAAAAAA"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:textColor="@android:color/black"/>-->
+
+<!--        <TextView-->
+<!--            android:layout_marginBottom="@dimen/padding_8dp"-->
+<!--            android:layout_marginTop="@dimen/padding_8dp"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="AAAAAAAAAA"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:textColor="@android:color/black"/>-->
+<!--    </LinearLayout>-->
+</LinearLayout>

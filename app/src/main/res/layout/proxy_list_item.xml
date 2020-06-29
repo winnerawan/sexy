@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:weightSum="100"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/layout_margin_8dp"
+    android:id="@+id/layoutItemProxy"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_weight="5"
+        android:id="@+id/ivCountryFlag"
+        android:layout_width="32dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="@dimen/layout_margin_8dp"
+        android:contentDescription="@null" />
+
+    <TextView
+        android:layout_weight="95"
+        android:id="@+id/tvCountryName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:paddingStart="@dimen/layout_margin_16dp"
+        android:layout_marginStart="@dimen/layout_margin_16dp"
+        android:gravity="left"
+        android:text=""
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+
+</LinearLayout>

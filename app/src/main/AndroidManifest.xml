@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.browser.proxy.browserproxy">
+    <!-- SDK -->
+    <!-- Permission -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name="com.browser.proxy.browserproxy.App"
+        android:allowBackup="true"
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:usesCleartextTraffic="true">
+        <activity android:name="com.browser.proxy.browserproxy.Activity.SplashActivity"
+            android:theme="@style/SplashActivityTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <!-- HolderActivity -->
+        <activity
+            android:name="com.browser.proxy.browserproxy.Activity.HolderActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="@string/app_scheme_http" />
+                <data android:scheme="@string/app_scheme_https" />
+            </intent-filter>
+        </activity> <!-- HolderService -->
+        <service
+            android:name="com.browser.proxy.browserproxy.Service.HolderService"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/app_name" /> <!-- BrowserActivity -->
+        <activity
+            android:name="com.browser.proxy.browserproxy.Activity.BrowserActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance"
+            android:theme="@style/BrowserActivityTheme"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.WEB_SEARCH" />
+                <category android:name="android.intent.category.DEFAULT" />
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity> <!-- ReadabilityActivity -->
+        <activity
+            android:name="com.browser.proxy.browserproxy.Activity.ReadabilityActivity"
+            android:label="@string/readability_label"
+            android:theme="@style/ReadabilityActivityTheme" /> <!-- SettingActivity -->
+        <activity
+            android:name="com.browser.proxy.browserproxy.Activity.SettingActivity"
+            android:label="@string/setting_label"
+            android:theme="@style/SettingActivityTheme" /> <!-- WhitelistActivity -->
+        <activity
+            android:name="com.browser.proxy.browserproxy.Activity.WhitelistActivity"
+            android:label="@string/whitelist_label"
+            android:theme="@style/WhitelistActivityTheme" /> <!-- TokenActivity -->
+        <activity
+            android:name="com.browser.proxy.browserproxy.Activity.TokenActivity"
+            android:label="@string/token_label"
+            android:theme="@style/TokenActivityTheme" /> <!-- ClearActivity -->
+        <activity
+            android:name="com.browser.proxy.browserproxy.Activity.ClearActivity"
+            android:label="@string/clear_label"
+            android:theme="@style/ClearActivityTheme" /> <!-- ClearService -->
+        <service
+            android:name="com.browser.proxy.browserproxy.Service.ClearService"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/app_name" />
+    </application>
+
+</manifest>
