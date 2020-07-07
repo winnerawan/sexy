@@ -1,5 +1,6 @@
 package com.browser.proxy.browserproxy.Activity;
 
+import android.Manifest;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -10,6 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -40,6 +42,8 @@ import android.webkit.WebView;
 import android.widget.*;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.gson.Gson;
 import com.orhanobut.dialogplus.DialogPlus;
@@ -147,6 +151,11 @@ public class BrowserActivity extends Activity implements BrowserController {
     private int mediumAnimTime = 0;
     private int longAnimTime = 0;
     private AlbumController currentAlbumController = null;
+
+    String[] permissions = new String[]{
+            Manifest.permission.WRITE_EXTERNAL_STORAGE};
+
+    private static final int REQUEST_MULTIPLE_PERMISSIONS = 117;
 
 //    @Override
 //    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
@@ -2212,7 +2221,10 @@ public class BrowserActivity extends Activity implements BrowserController {
                                 findInPage();
                                 break;
                             case 3:
-                                screenShot();
+                                boolean perm = checkPermissions();
+                                if (perm) {
+                                    screenShot();
+                                }
                                 break;
                             case 4:
                                 share();
@@ -2264,5 +2276,38 @@ public class BrowserActivity extends Activity implements BrowserController {
                 })
                 .create();
         menuProxies.show();
+    }
+
+    private boolean checkPermissions() {
+        int result;
+        List<String> listPermissionsNeeded = new ArrayList<>();
+        for (String p : permissions) {
+            result = ContextCompat.checkSelfPermission(this, p);
+            if (result != PackageManager.PERMISSION_GRANTED) {
+                listPermissionsNeeded.add(p);
+            }
+        }
+        if (!listPermissionsNeeded.isEmpty()) {
+            ActivityCompat.requestPermissions(this, listPermissionsNeeded.toArray(new String[0]), REQUEST_MULTIPLE_PERMISSIONS);
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,@NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case REQUEST_MULTIPLE_PERMISSIONS: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    //granted
+                } else {
+//                    finish();
+                    Toast.makeText(BrowserActivity.this, "Please Grant All Permission to Use All Feature", Toast.LENGTH_LONG).show();
+                }
+                return;
+            }
+        }
     }
 }
