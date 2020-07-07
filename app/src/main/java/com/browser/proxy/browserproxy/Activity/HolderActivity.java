@@ -26,7 +26,6 @@ import com.browser.proxy.browserproxy.Unit.IntentUnit;
 import com.browser.proxy.browserproxy.View.DialogAdapter;
 import com.browser.proxy.browserproxy.View.NinjaContextWrapper;
 import com.browser.proxy.browserproxy.View.NinjaToast;
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 import java.util.*;
 
@@ -191,11 +190,6 @@ public class HolderActivity extends Activity {
         startActivity(intent2);
         this.background = true;
         finish();
-    }
-
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
     private boolean checkPermissions() {

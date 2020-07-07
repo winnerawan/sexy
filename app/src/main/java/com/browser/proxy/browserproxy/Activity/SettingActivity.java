@@ -20,7 +20,6 @@ import com.browser.proxy.browserproxy.View.NinjaToast;
 import com.browser.proxy.browserproxy.Fragment.SettingFragment;
 import com.browser.proxy.browserproxy.R;
 import com.browser.proxy.browserproxy.Unit.IntentUnit;
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 import java.io.File;
 
@@ -111,9 +110,4 @@ public class SettingActivity extends AppCompatActivity {
         }
     }
 
-
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
-    }
 }
