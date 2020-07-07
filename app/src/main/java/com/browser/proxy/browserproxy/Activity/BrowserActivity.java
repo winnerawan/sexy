@@ -74,7 +74,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 import com.browser.proxy.browserproxy.dynamicgrid.DynamicGridView;
 
@@ -2192,12 +2191,6 @@ public class BrowserActivity extends Activity implements BrowserController {
             }
             return;
         }
-
-
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
-    }
 
     private void showDialogPlus(){
         if (currentAlbumController != null && currentAlbumController instanceof NinjaWebView) {

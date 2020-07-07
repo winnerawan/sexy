@@ -261,7 +261,6 @@
 
             <EditText
                 android:id="@+id/main_search_box"
-                fontPath="fonts/google_sans.ttf"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/layout_height_36dp"
                 android:layout_centerInParent="true"
