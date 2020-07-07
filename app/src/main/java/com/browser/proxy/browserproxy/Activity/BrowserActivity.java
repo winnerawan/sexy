@@ -173,7 +173,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     private void fetchProxies(){
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("http://64.225.23.26/proxy/panel/public/")
+                .baseUrl("http://127.0.0.1/proxy/panel/public/")
                 .build();
         ProxyService service = retrofit.create(ProxyService.class);
 
