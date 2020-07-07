@@ -2304,6 +2304,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                     //granted
                 } else {
 //                    finish();
+                    //todo
                     Toast.makeText(BrowserActivity.this, "Please Grant All Permission to Use All Feature", Toast.LENGTH_LONG).show();
                 }
                 return;
