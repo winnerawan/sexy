@@ -9,28 +9,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class ProxyItem {
 //    public static final long UNLOCKED_TIME = 3600000;
-    @SerializedName("countryCode")
+    @SerializedName("country_code")
     @Expose
-    private String countryCode = "";
-    @SerializedName("countryFlag")
-    @Expose
-    private int countryFlag;
-    @SerializedName("countryName")
-    @Expose
-    private String countryName = "";
+    private String countryCode;
 
-    @SerializedName("proxyHost")
+    private int countryFlag;
+
+    @SerializedName("country_flag")
     @Expose
-    private String proxyHost = "";
-    @SerializedName("proxyPass")
+    private String countryName;
+
+    @SerializedName("host")
     @Expose
-    private String proxyPass = "";
-    @SerializedName("proxyPort")
+    private String proxyHost;
+    @SerializedName("pass")
     @Expose
-    private int proxyPort = 0;
-    @SerializedName("proxyUser")
+    private String proxyPass;
+    @SerializedName("port")
     @Expose
-    private String proxyUser = "";
+    private int proxyPort;
+    @SerializedName("user")
+    @Expose
+    private String proxyUser;
 
     private boolean isFree = false;
     private boolean isUnlockededNow = false;
@@ -113,7 +113,6 @@ public class ProxyItem {
     }
 
     public int getCountryFlag() {
-
         Log.e("COUNTRYFLAG", String.valueOf("flag_" + getCountryName().toLowerCase()));
         return this.countryFlag;
     }

@@ -6,6 +6,6 @@ import retrofit2.http.GET;
 
 public interface ProxyService {
 
-    @GET("proxy.json")
+    @GET("api/proxy")
     Call<ProxyResponse> getListProxy();
 }

@@ -173,14 +173,16 @@ public class BrowserActivity extends Activity implements BrowserController {
     private void fetchProxies(){
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("https://globaltechnology.imfast.io/json/")
+                .baseUrl("http://64.225.23.26/proxy/panel/public/")
                 .build();
         ProxyService service = retrofit.create(ProxyService.class);
 
         service.getListProxy().enqueue(new Callback<ProxyResponse>() {
             @Override
             public void onResponse(@NonNull Call<ProxyResponse> call, @NonNull Response<ProxyResponse> response) {
-                Log.i("RESPONSE", new Gson().toJson(response.body().getProxyItems()));
+                Log.e("RESPONSE", new Gson().toJson(response.body().getProxyItems()));
+                Log.e("RESPONSE", response.body().toString());
+
                 proxyList.addAll(response.body().getProxyItems());
 //                proxySpinnerAdapter.initProxyList(proxyList);
                 proxyItem = proxyList.get(0);
@@ -189,6 +191,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
             @Override
             public void onFailure(Call<ProxyResponse> call, Throwable t) {
+                Log.e("eeerrrr", t.getMessage());
                 proxyItem = new ProxyItem(getApplicationContext(), "181.214.112.1", 45785, "Selgoofyghoest", "Q7f8UpA", "USA", "USA");
                 proxyList.add(proxyItem);
             }
@@ -199,6 +202,8 @@ public class BrowserActivity extends Activity implements BrowserController {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.invertStatusBar(this);
+        fetchProxies();
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             ActivityManager.TaskDescription description = new ActivityManager.TaskDescription(
                     getString(R.string.app_name),
@@ -208,7 +213,6 @@ public class BrowserActivity extends Activity implements BrowserController {
             setTaskDescription(description);
         }
 
-        fetchProxies();
 
         proxySpinnerAdapter = new ProxySpinnerAdapter(this, R.layout.proxy_list_item, proxyList);
 
